@@ -4,13 +4,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class WeatherData implements Subject {
-    Set<Observer> registerList;
+    Set<Observer> observers;
     float temp;
     float humidity;
     float pressure;
 
     WeatherData() {
-        registerList = new HashSet<>();
+        observers = new HashSet<>();
         temp = 0;
         humidity = 0;
         pressure = 0;
@@ -18,19 +18,19 @@ public class WeatherData implements Subject {
 
     @Override
     public void registerObserver(Observer o) {
-        registerList.add(o);
+        observers.add(o);
     }
 
     @Override
     public void removeObserver(Observer o) {
-        if (registerList.contains(o)) {
-            registerList.remove(o);
+        if (observers.contains(o)) {
+            observers.remove(o);
         }
     }
 
     @Override
     public void notifyObserver() {
-        for (Observer curr : registerList) {
+        for (Observer curr : observers) {
             curr.update(temp, humidity, pressure);
         }
     }
