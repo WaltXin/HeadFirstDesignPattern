@@ -1,2 +1,2 @@
 # HeadFirstDesignPattern
-Implements some design pattern for head first design pattern book
+Implement design pattern for head first design pattern book
